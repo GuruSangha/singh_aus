@@ -5,16 +5,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'LetsQualifiedCertificates') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+        <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
+        <script src="{{ asset('js/MultistepForm.js') }}" defer></script>
+        <script src="{{ asset('js/jquery.easing.min.js') }}" defer></script>
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">

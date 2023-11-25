@@ -1,0 +1,668 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+}
+:root {
+    --primary: #333;
+    --secondary: #333;
+    --errorColor: red;
+    --stepNumber: 6;
+    --step_formWidth: 600px;
+    --bgColor: #333;
+    --inputBorderColor: lightgray;
+}
+
+.body_content {
+    background-color: #DFEDCA !important;
+    background-image: url("/images/teximechanic.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    transition: all 1.4s !important;
+}
+
+/* .body_content:before {
+    content: "";
+    background: rgb(255 255 255 / 60%);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+} */
+.logo_head {
+    padding: 25px 0;
+}
+.logo_head img {
+    max-width: 120px;
+}
+
+
+/*form styles*/
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 10px;
+}
+
+#msform fieldset {
+    border: 0 none;
+    border-radius: 8px;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    width: 1040px;
+    margin: 0 auto;
+    position: relative;
+    max-width: 100%;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #88be41;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #88be41;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #88be41;
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #f6ffeb;
+    color: #88be41;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "Open Sans", Sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+    border-radius: 35px 35px 35px 35px!important;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+    border: solid 1px #88be41!important;
+    float: none!important;
+    text-transform: capitalize!important;
+    padding: 10px 50px!important;
+    margin: 15px 10px !important;
+    min-width: 195px !important;
+}
+#msform .action-button-previous:hover {
+   background: #fff;
+}
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    box-shadow: none;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 5px;
+    overflow: hidden;
+    counter-reset: step;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 20%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    background: #d7e0ca;
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+    z-index: 2;
+    position: relative;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 6px;
+    background: #d7e0ca;
+    position: absolute;
+    left: -50%;
+    top: 12px;
+    z-index: 0;
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps blue*/
+/*The number of the step and the connector before it = blue*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: #88be41;
+    color: white;
+}
+
+.form-wrapper label {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    color: #000;
+    font-weight: 700;
+    text-transform: none;
+    margin-bottom: 0px;
+    display: block;
+}
+.form-wrapper select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url(https://new.skillscertified.com.au/wp-content/uploads/2023/09/down-arrow1-1.png);
+    background-repeat: no-repeat;
+    background-position-x: 97%;
+    background-position-y: 20px;
+    background-size: 3%;
+    appearance: none;
+    border-radius: 30px;
+    border: solid 1px #88be41;
+    text-align: center;
+    background-color: #f7f7fa;
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+    padding: 17px 10px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+    width: 96%;
+    margin-bottom: 18px;
+}
+.action-button {
+    font-family: "Open Sans", Sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+    border-radius: 35px 35px 35px 35px!important;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+    border: solid 1px #fff!important;
+    float: none!important;
+    text-transform: capitalize!important;
+    padding: 10px 50px!important;
+    margin: 0 10px 15px !important;
+    min-width: 195px !important;
+    color: #fff !important;
+    background-color: #88be41 !important;
+    border-color: #88be41 !important;
+}
+.action-button:hover {
+    color: #3b3b3b !important;
+    background-color: #fff !important;
+    border-color: #88be41 !important;
+    opacity: 1 !important;
+    outline: none;
+    box-shadow: none !important;
+}
+.first-step-text {
+    font-size: 13px;
+    line-height: 20px;
+    color: #000;
+}
+.stepone_form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.radiobutton {
+    float: left;
+    margin: 0 5px 0 0;
+    width: 200px;
+    height: 40px;
+    position: relative;
+    min-width: 150px;
+  }
+  
+  .radiobutton label,
+  .radiobutton input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .radiobutton input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+  }
+  
+  .radiobutton input[type="radio"]:checked + label {
+    background: #88be41;
+    border-radius: 37px;
+}
+  
+  .radiobutton label {
+    cursor: pointer;
+    z-index: 90;
+    line-height: 0.6em;
+    font-size: 12px;
+}
+  
+.age_group {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    min-height: 80px;
+    padding-top: 5px;
+}
+.radiobutton{
+    border: solid 1px #b8c9a1;
+    border-radius: 35px;
+    background: #fff;
+    padding: 10px 0;
+    min-height: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+}
+.radiobutton label span {
+    display: block;
+    line-height: 1.4;
+    font-size: 18px;
+}
+.experiance_location {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 10px;
+}
+.experiance_location label {
+    font-size: 16px;
+    line-height: 2;
+}
+div#tp-widget-businessinfo {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 11px;
+}
+a#profile-link {
+    display: block;
+    text-align: center;
+}
+.radio-custom-style {
+    width: 19%;
+    margin: -10px 15px 15px 15px;
+    display: inline-block;
+}
+.radio-custom-style form p:last-child {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.radio-custom-style form p:first-child {
+    margin-top: 0;
+}
+.radio-custom-style input[type=radio] {
+    -webkit-appearance: none;
+    height: 0px !important;
+    position: relative;
+    background-color: #fff;
+    border: 2px solid currentColor;
+    width: 1em;
+    border-radius: 50%;
+    outline: none;
+    font-size: 15px;
+    margin-right: 0.6em;
+    vertical-align: text-bottom;
+    padding: 0 !important;
+    margin: 0;
+}
+.radio-custom-style input[type=radio]:checked:before {
+    content: '';
+    background-color: currentColor;
+    position: absolute;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    bottom: 3px;
+    right: 3px;
+}
+.fsa-form-step3 .radio-custom-style input[type="radio"]:not(old) + label {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    height: 125px;
+    border-radius: 15px;
+}
+.radio-custom-style [type="radio"]:checked + label {
+    background-color: #88be41;
+    color: #fff;
+}
+
+.radio-custom-style label {
+    border: solid 1px #b8c9a1;
+    border-radius: 35px;
+    background: #fff;
+    padding: 10px 0;
+    min-height: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+}
+.cf7-fsa-form label {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 15px;
+    line-height: 26px;
+    color: #3b3b3b;
+    font-weight: 700;
+    text-transform: none;
+    margin-bottom: 10px;
+}
+.radio-custom-style [type="radio"]:checked + label span {
+    color: #fff;
+}
+.fsa-form-step3 .radio-custom-style label span {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+.radio-custom-style label span {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    font-family: "Open Sans", Sans-serif;
+    line-height: 16px;
+}
+.fsa-form-step3 .radio-custom-style input[type="radio"]:not(old) + label {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    height: 125px;
+    border-radius: 15px;
+    width: 100%;
+    position: relative;
+}
+
+.fsa-form-step3 .radio-custom-style input[type="radio"]:not(old) + label:hover {
+    background-color: #88be41;
+}
+
+.radio-custom-style input[type="checkbox"]:not(old), .radio-custom-style input[type="radio"]:not(old) {
+    width: 60px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+.radio-custom-style label {
+    border: solid 1px #b8c9a1;
+    border-radius: 35px;
+    background: #fff;
+    padding: 10px 0;
+    min-height: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+}
+.fsa-form-step3 .radio-custom-style.nsw input[type="radio"]:not(old) + label {
+    background-image: url(https://new.skillscertified.com.au/wp-content/uploads/2023/09/NSW.png);
+}
+.fsa-form-step3 .radio-custom-style.vic input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/VIC.png");
+}
+.fsa-form-step3 .radio-custom-style.qld input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/QLD.png");
+}
+.fsa-form-step3 .radio-custom-style.sa input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/SA.png");
+}
+.fsa-form-step3 .radio-custom-style.wa input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/WA.png");
+}
+.fsa-form-step3 .radio-custom-style.act input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/ACT.png");
+}
+.fsa-form-step3 .radio-custom-style.nt input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/NT.png");
+}
+.fsa-form-step3 .radio-custom-style.tas input[type="radio"]:not(old) + label {
+    background-image: url("https://new.skillscertified.com.au/wp-content/uploads/2023/09/TAS.png");
+}
+.fsa-form-step3 .radio-custom-style label span {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+.radio-custom-style label span {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    font-family: "Open Sans", Sans-serif;
+    line-height: 16px;
+}
+p.selectionShareables {
+    transform: none !important;
+    position: relative !important;
+    opacity: 1 !important;
+    display: block !important;
+    margin-bottom: 0;
+}
+.fsa-form-step4 .radio-custom-style.yes input[type="radio"]:checked + label {
+    background-image: url(https://new.skillscertified.com.au/wp-content/uploads/2023/09/tick-white.png);
+}
+.fsa-form-step4 .radio-custom-style.yes input[type="radio"]:not(old) + label {
+    background-image: url(https://new.skillscertified.com.au/wp-content/uploads/2023/09/tick-green.png);
+}
+.fsa-form-step4 .radio-custom-style.no input[type="radio"]:checked + label {
+    background-image: url(https://new.skillscertified.com.au/wp-content/uploads/2023/09/cross-white.png);
+}
+
+.fsa-form-step4 .radio-custom-style.no input[type="radio"]:not(old) + label {
+    background-image: url(https://new.skillscertified.com.au/wp-content/uploads/2023/09/cross-green.png);
+}
+.fsa-form-step4 .radio-custom-style input[type="radio"]:not(old) + label {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    height: 88px;
+    border-radius: 15px;
+    width: 100%;
+    position: relative;
+}
+.fsa-form-step4 .radio-custom-style label span {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+#msform .selectionShareable input, #msform .selectionShareable textarea {
+    padding: 15px;
+    border: 1px solid #88be41;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+    color: #000;
+}
+
+.step5wrapper{
+    max-width: 660px;
+    margin: 0 auto;
+}
+p.selectionShareable label {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+p.selectionShareable label input {
+    width: max-content !important;
+    box-shadow: none;
+}
+p.selectionShareable label span {
+    font-size: 12px;
+    padding-left: 6px;
+    color: #000;
+}
+.radio-yes-custom .selectionShareable textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 30px;
+    border: solid 1px #88be41;
+    text-align: center;
+    background-color: #f7f7fa;
+    font-size: 14px;
+    color: #000;
+    font-weight: 400;
+    padding: 17px 10px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+    width: 100%;
+    margin-bottom: 0px;
+    height: 58px;
+    min-height: 10px;
+    resize: none;
+    overflow: hidden;
+}
+.radio-yes-custom label{
+    display: block !important;
+}
+.radio-yes-custom {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.cf7mls-btns {
+    width: 80%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+ #msform .selectionShareable .input_cv {
+    padding: 15px;
+    border: 1px solid #88be41;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+}
+.input_cv {
+    position: relative;
+    height: 50px;
+}
+.input_cv p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    background: #88be41;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    color: #fff;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.27);
+}
+.requriedClass {
+    border: solid 2px #b70d1e !important;
+}
+.input_cv input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 0;
+}
+.hide{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .age_group, .experiance_location {
+        flex-wrap: wrap;
+    }
+    .radiobutton {
+        margin-bottom: 12px;
+    }
+    #msform .action-button-previous, #msform .action-button {
+        min-width: 155px !important;
+    }
+    .radio-custom-style {
+        width: 25%;
+    }
+    .fsa-form-step3 .radio-custom-style input[type="radio"]:not(old) + label {
+        height: 90px;
+    }
+}

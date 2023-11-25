@@ -14,17 +14,17 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+Route::post('/submitContactForm', 'App\Http\Controllers\HomeController@submitContactForm')->name('home.submitcontactform');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/contactForm', function () {
+Route::get('/contactform', function () {
     return view('contactForm');
 });
+
 Route::get('/uploadfile','App\Http\Controllers\UploadFileController@index');
 Route::post('/uploadfile','App\Http\Controllers\UploadFileController@showUploadFile');
 require __DIR__.'/auth.php';
