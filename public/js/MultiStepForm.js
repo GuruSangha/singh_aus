@@ -90,8 +90,8 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
-	//return false;
+$("#formSubmit").click(function(){
+	//$('.subspinner').removeAttr('style');
 });
 var options ={
 	"Automotive":[

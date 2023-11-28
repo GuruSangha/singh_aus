@@ -297,7 +297,7 @@
                                             </label>
                                         </p>
                                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                        <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                                        <input type="submit" name="submit" class="submit action-button" id="formSubmit" value="Submit" />
                                         
                                     </fieldset>
                                 </form>
