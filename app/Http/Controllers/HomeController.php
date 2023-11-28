@@ -23,9 +23,9 @@ class HomeController extends Controller
         if(isset($data['image']) && !empty($data['image'])){
             $file_path = $this->verifyAndUpload($request);
         }
-        $this->EmailSend('gurusangha88@gmail.com','Contact-Us Form','Contact-US',$data,($file_path != NULL) ? public_path($file_path):NULL);
+        $this->EmailSend('gurusangha88@gmail.com','Contact-Us Form','Contact-US',$data,($file_path != NULL) ? ($file_path):NULL);
         if($file_path!=NULL){
-            unlink($file_path);
+            //unlink($file_path);
         }
         Session::flash('message'); 
         return redirect()->route('home.index');

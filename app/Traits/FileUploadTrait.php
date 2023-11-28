@@ -22,7 +22,7 @@ trait FileUploadTrait {
 
             }
             $newFileName = $md5Name.'.'.$request->file($fieldname)->getClientOriginalExtension();
-            return $path = $request->file($fieldname)->move($directory,$newFileName);
+            return $path = $request->file($fieldname)->move(public_path($directory),$newFileName);
 
         }
 
