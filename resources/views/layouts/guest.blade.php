@@ -18,7 +18,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
         <script src="{{ asset('js/jquery-3.7.1.min.js') }}" defer></script>
-        <script src="{{ asset('js/MultistepForm.js') }}" defer></script>
+        <script src="{{ asset('js/MultiStepForm.js') }}" defer></script>
         <script src="{{ asset('js/jquery.easing.min.js') }}" defer></script>
     </head>
     <body>
