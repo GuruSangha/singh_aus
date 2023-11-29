@@ -3,7 +3,7 @@
         <div class="container">
             <section>
                 <div class="logo_head">
-                    <img src="{{url('public/images/logo_image.svg')}} "
+                    <img src="{{asset('images/logo_image.svg')}} "
                     alt="Not Available"> 
                 </div>
             </section>

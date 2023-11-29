@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'LetsQualifiedCertificates') }}</title>
+        <link rel="icon" href="{!! asset('images/logo_image.jpg') !!}"/>
 
         <!-- Fonts -->
 
