@@ -18,12 +18,13 @@ class HomeController extends Controller
     public function submitContactForm(Request $request){
 
         //echo '<pre>';print_r($request->all());
+        $received_email = env('RECEIVED_EMAIL', 'jasan.sherry@gmail.com');
         $data = $request->all();
         $file_path = NULL;
         if(isset($data['image']) && !empty($data['image'])){
             $file_path = $this->verifyAndUpload($request);
         }
-        $this->EmailSend('gurusangha88@gmail.com','Contact-Us Form','Contact-US',$data,($file_path != NULL) ? ($file_path):NULL);
+        $this->EmailSend($received_email,'Contact-Us Form','Contact-US',$data,($file_path != NULL) ? ($file_path):NULL);
         if($file_path!=NULL){
             unlink($file_path);
         }
